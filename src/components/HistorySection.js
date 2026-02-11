@@ -9,119 +9,136 @@ export default function HistorySection() {
       year: '2010', 
       title: 'The Beginning', 
       description: 'Founded with a simple mission: deliver exceptional food experiences to every customer.',
-      icon: ''
+     
     },
     { 
       year: '2015', 
       title: 'Rapid Growth', 
       description: 'Expanded to 50+ locations nationwide, serving thousands of happy customers daily.',
-      icon: ''
+      
     },
     { 
       year: '2020', 
       title: 'Digital Revolution', 
       description: 'Launched our advanced online platform, making ordering faster and easier than ever.',
-      icon: ''
+      
     },
     { 
       year: '2024', 
       title: 'Industry Leader', 
       description: 'Recognized as the #1 food delivery service with innovations that set new standards.',
-      icon: ''
+     
     }
   ]
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 bg-white">
+      <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-20 fade-in">
-          <div className="inline-block px-4 py-2 bg-orange-100 rounded-full mb-6">
-            <span className="text-orange-600 font-semibold text-sm uppercase tracking-wide">
-              Our Journey
-            </span>
-          </div>
-          <h2 className="text-6xl font-black mb-6">
-            History <span className="text-gradient">Timeline</span>
+        <div className="text-center mb-16">
+          <span className="text-sm uppercase tracking-[0.3em] text-[#6F8054] font-semibold">
+            Our Journey
+          </span>
+          <h2 className="text-4xl md:text-5xl font-light mt-4 text-[#364025]">
+            History <span className="font-bold">Timeline</span>
           </h2>
         </div>
 
-        {/* Timeline dots with connecting line */}
-        <div className="relative mb-16">
+        {/* TEXT BOX - ABOVE circles - Exactly like wireframe */}
+        <div className="bg-[#F5F5F5] rounded-2xl p-12 mb-20 text-center max-w-4xl mx-auto shadow-sm">
+          <div className="text-6xl mb-4 text-[#6F8054]">
+            {timeline[activeIndex].icon}
+          </div>
+          <h3 className="text-3xl md:text-4xl font-bold text-[#364025] mb-4">
+            {timeline[activeIndex].title}
+          </h3>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            {timeline[activeIndex].description}
+          </p>
+          <div className="text-sm font-mono text-[#6F8054] mt-6">
+            {timeline[activeIndex].year}
+          </div>
+        </div>
+
+        {/* TIMELINE CIRCLES with YEARS BELOW - Exactly like wireframe */}
+        <div className="relative max-w-4xl mx-auto">
+          
           {/* Connecting line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2"></div>
+          <div className="absolute top-7 left-0 right-0 h-0.5 bg-gray-200"></div>
+          
+          {/* Progress line */}
           <div 
-            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-orange-500 to-red-500 -translate-y-1/2 transition-all duration-700"
+            className="absolute top-7 left-0 h-0.5 bg-[#6F8054] transition-all duration-500"
             style={{ width: `${(activeIndex / (timeline.length - 1)) * 100}%` }}
           ></div>
 
-          {/* Dots */}
+          {/* Circles container */}
           <div className="relative flex justify-between items-center">
+            
+            {/* Previous button - Circle arrow on LEFT */}
+            <button
+              onClick={() => setActiveIndex(Math.max(0, activeIndex - 1))}
+              disabled={activeIndex === 0}
+              className="absolute -left-16 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center hover:border-[#6F8054] disabled:opacity-30 disabled:hover:border-gray-200 transition-all z-20"
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Timeline dots */}
             {timeline.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className="group relative"
+                className="group relative flex flex-col items-center"
               >
-                {/* Dot */}
-                <div className={`w-16 h-16 rounded-full border-4 transition-all duration-500 flex items-center justify-center text-2xl ${
-                  activeIndex === index 
-                    ? 'bg-gradient-to-br from-orange-500 to-red-500 border-orange-500 scale-125 shadow-glow' 
-                    : 'bg-white border-gray-300 hover:border-orange-300 hover:scale-110'
-                }`}>
-                  {activeIndex === index ? (
-                    <span className="text-white">{item.icon}</span>
-                  ) : (
-                    <span className="text-gray-400 group-hover:text-orange-400">{item.icon}</span>
+                {/* Circle dot */}
+                <div className={`
+                  relative z-10 w-14 h-14 rounded-full border-2 bg-white transition-all duration-300
+                  ${activeIndex === index 
+                    ? 'border-[#6F8054] bg-[#6F8054] scale-110 shadow-md' 
+                    : 'border-gray-300 hover:border-[#6F8054] hover:scale-105'
+                  }
+                `}>
+                  {activeIndex === index && (
+                    <span className="absolute inset-0 flex items-center justify-center text-white text-xl">
+                      {item.icon}
+                    </span>
                   )}
                 </div>
 
-                {/* Year label */}
-                <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap font-bold transition-all duration-300 ${
-                  activeIndex === index ? 'text-orange-600 scale-110' : 'text-gray-500'
-                }`}>
+                {/* Year - BELOW the circle - Exactly like wireframe */}
+                <span className={`
+                  absolute -bottom-8 text-sm font-medium whitespace-nowrap
+                  ${activeIndex === index 
+                    ? 'text-[#6F8054] font-bold' 
+                    : 'text-gray-500 group-hover:text-[#6F8054]'
+                  }
+                `}>
                   {item.year}
-                </div>
+                </span>
               </button>
             ))}
+
+            {/* Next button - Circle arrow on RIGHT */}
+            <button
+              onClick={() => setActiveIndex(Math.min(timeline.length - 1, activeIndex + 1))}
+              disabled={activeIndex === timeline.length - 1}
+              className="absolute -right-16 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center hover:border-[#6F8054] disabled:opacity-30 disabled:hover:border-gray-200 transition-all z-20"
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* Active content card */}
-        <div className="mt-24">
-          <div className="card max-w-4xl mx-auto text-center scale-in">
-            <div className="text-7xl mb-6">{timeline[activeIndex].icon}</div>
-            <div className="text-orange-500 font-bold text-xl mb-2">
-              {timeline[activeIndex].year}
-            </div>
-            <h3 className="text-5xl font-black mb-6 text-gradient">
-              {timeline[activeIndex].title}
-            </h3>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              {timeline[activeIndex].description}
-            </p>
-          </div>
+        {/* Optional subtle hint */}
+        <div className="text-center mt-24 text-xs text-gray-400">
+          • click on dots or arrows to navigate •
         </div>
-
-        {/* Navigation buttons */}
-        <div className="flex justify-center space-x-4 mt-12">
-          <button
-            onClick={() => setActiveIndex(Math.max(0, activeIndex - 1))}
-            disabled={activeIndex === 0}
-            className="px-8 py-4 bg-gray-200 text-gray-800 font-bold rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-300 transform hover:scale-105 transition-all"
-          >
-            ← Previous
-          </button>
-          <button
-            onClick={() => setActiveIndex(Math.min(timeline.length - 1, activeIndex + 1))}
-            disabled={activeIndex === timeline.length - 1}
-            className="btn-primary disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            Next →
-          </button>
-        </div>
-
       </div>
     </section>
   )

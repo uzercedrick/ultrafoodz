@@ -39,7 +39,7 @@ export default function BrandsSection() {
                 {/* Logo placeholder */}
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-9xl text-gray-300 group-hover:text-orange-500 transition-colors duration-500">
-                    ✕
+                    
                   </div>
                   {/* Replace with: */}
                   {/* <img 

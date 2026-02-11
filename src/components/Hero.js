@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
 
   const slides = [
     { 
@@ -26,38 +25,17 @@ export default function Hero() {
     }
   ]
 
-  // Continuous auto-scroll
+  // Continuous auto-scroll every 3 seconds
   useEffect(() => {
-    if (isPaused) return
-
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 4000) // Change slide every 4 seconds
+    }, 3000) // Change slide every 3 seconds
 
     return () => clearInterval(timer)
-  }, [isPaused, slides.length])
-
-  // Go to specific slide
-  const goToSlide = (index) => {
-    setCurrentSlide(index)
-  }
-
-  // Go to next slide
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
-
-  // Go to previous slide
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+  }, [slides.length])
 
   return (
-    <section 
-      className="relative h-[700px] overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="relative h-[700px] overflow-hidden">
       
       {/* Slides container */}
       <div className="relative w-full h-full">
@@ -79,7 +57,7 @@ export default function Hero() {
             {/* Background image/placeholder */}
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
               <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center image-hover">
-                <div className="text-9xl text-gray-400 animate-pulse">✕</div>
+                <div className="text-9xl text-gray-400 animate-pulse"></div>
                 {/* Replace with: */}
                 {/* <img 
                   src={slide.image} 
@@ -113,12 +91,21 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Pause indicator (appears on hover) */}
-      {isPaused && (
-        <div className="absolute top-8 right-8 z-20 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold animate-fade-in">
-          Paused
-        </div>
-      )}
+      {/* Carousel indicators (dots only) */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-2 rounded-full transition-all duration-500 ${
+              currentSlide === index 
+                ? 'w-12 bg-white shadow-glow' 
+                : 'w-2 bg-white/50 hover:bg-white/80 hover:w-8'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
     </section>
   )

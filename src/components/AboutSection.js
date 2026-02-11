@@ -8,7 +8,7 @@ export default function AboutSection() {
           <div className="slide-in-left">
             <div className="image-hover">
               <div className="relative h-[600px] bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl flex items-center justify-center shadow-2xl">
-                <div className="text-9xl text-gray-300 float">✕</div>
+                <div className="text-9xl text-gray-300 float"></div>
                 {/* Replace: <img src="/about.jpg" className="w-full h-full object-cover rounded-3xl" /> */}
               </div>
             </div>
@@ -37,12 +37,7 @@ export default function AboutSection() {
               exceptional culinary experiences that delight every palate.
             </p>
 
-            <button className="btn-primary group">
-              Learn More 
-              <span className="inline-block ml-2 transform group-hover:translate-x-2 transition-transform">
-                →
-              </span>
-            </button>
+            
           </div>
 
         </div>
