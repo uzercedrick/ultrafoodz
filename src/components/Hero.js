@@ -106,58 +106,10 @@ export default function Hero() {
                     {slide.subtitle}
                   </p>
 
-                  {/* CTA Buttons */}
-                  <div className="flex flex-wrap gap-4 animate-scale-in">
-                    <button className="btn-primary">
-                      Order Now
-                      <span className="ml-2">→</span>
-                    </button>
-                    <button className="btn-secondary">
-                      View Menu
-                    </button>
-                  </div>
-
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* Navigation arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:bg-white hover:scale-110 transition-all duration-300 group"
-        aria-label="Previous slide"
-      >
-        <svg className="w-6 h-6 text-gray-800 group-hover:text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:bg-white hover:scale-110 transition-all duration-300 group"
-        aria-label="Next slide"
-      >
-        <svg className="w-6 h-6 text-gray-800 group-hover:text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Carousel indicators */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              currentSlide === index 
-                ? 'w-12 bg-white shadow-glow' 
-                : 'w-2 bg-white/50 hover:bg-white/80 hover:w-8'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
         ))}
       </div>
 
