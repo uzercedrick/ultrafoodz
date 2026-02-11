@@ -1,12 +1,12 @@
-import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import AboutSection from '@/components/AboutSection'
-import InfoSections from '@/components/InfoSections'
-import BrandsSection from '@/components/BrandsSection'
-import HistorySection from '@/components/HistorySection'
-import MapSection from '@/components/MapSection'
-import Footer from '@/components/Footer'
-import ScrollToTop from '@/components/ScrollToTop'
+import Header from "../components/Header"
+import Hero from "../components/Hero"
+import AboutSection from "../components/AboutSection"
+import InfoSections from "../components/InfoSections"
+import BrandsSection from "../components/BrandsSection"
+import HistorySection from "../components/HistorySection"
+import MapSection from "../components/MapSection"
+import Footer from "../components/Footer"
+import ScrollToTop from "../components/ScrollToTop"
 
 export default function Home() {
   return (
