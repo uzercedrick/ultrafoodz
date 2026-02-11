@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Define custom fonts in the theme */
+@theme {
+  --font-poppins: "Poppins", "sans-serif";
+  --font-playfair: "Playfair Display", "serif";
+}
 
 /* Custom fonts - Add Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap');
@@ -8,11 +12,12 @@
 /* Global styles */
 @layer base {
   body {
-    @apply font-poppins antialiased;
+    font-family: var(--font-poppins);
+    @apply antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+    font-family: var(--font-playfair);
   }
 
   /* Smooth scrolling for the whole page */
