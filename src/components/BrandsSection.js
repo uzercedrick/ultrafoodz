@@ -9,12 +9,12 @@ export default function Brands() {
           
           {/* Brand 1 */}
           <div className="bg-gray-200 h-48 flex items-center justify-center text-gray-400 text-4xl">
-            ✕
+            
           </div>
           
           {/* Brand 2 */}
           <div className="bg-gray-200 h-48 flex items-center justify-center text-gray-400 text-4xl">
-            ✕
+            
           </div>
           
           {/* Brand 3 */}

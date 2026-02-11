@@ -3,7 +3,7 @@ export default function Carosusel() {
     <section className="relative h-[600px] bg-gray-200">
       {/* Image placeholder - replace with your image */}
       <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-6xl">
-        ✕
+        
       </div>
       {/* You can replace with: */}
       {/* <img src="/hero-image.jpg" alt="Hero" className="w-full h-full object-cover" /> */}

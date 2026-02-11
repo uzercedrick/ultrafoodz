@@ -8,7 +8,7 @@ export default function Map() {
         {/* Map placeholder */}
         <div className="bg-gray-200 h-96 flex items-center justify-center text-gray-400 mb-8">
           <div className="text-center">
-            <div className="text-6xl mb-4">🗺️</div>
+            <div className="text-6xl mb-4"></div>
             <p>Replace with Google Maps embed</p>
             {/* To add real map: */}
             {/* <iframe 
