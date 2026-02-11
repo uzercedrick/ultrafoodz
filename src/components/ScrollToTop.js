@@ -1,43 +1,20 @@
-'use client'
-import { useState, useEffect } from 'react'
-
-export default function BacktoTop() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  // Show button when page is scrolled down
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
+export default function ScrollToTop() {
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition z-50"
-          aria-label="Scroll to top"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-      )}
-    </>
+    <button 
+      onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        padding: '10px 15px',
+        background: '#0070f3',
+        color: 'white',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer'
+      }}
+    >
+      ↑ Scroll to Top
+    </button>
   )
 }
