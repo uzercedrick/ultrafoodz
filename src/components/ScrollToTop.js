@@ -1,7 +1,13 @@
+"use client"
+
 export default function ScrollToTop() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <button 
-      onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+    <button
+      onClick={scrollToTop}
       style={{
         position: 'fixed',
         bottom: '20px',
