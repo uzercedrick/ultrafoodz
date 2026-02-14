@@ -1,0 +1,131 @@
+.footer {
+  background-color: #364025;
+  color: white;
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Logo */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Contact */
+.contactWrapper {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .contactWrapper {
+    text-align: right;
+  }
+}
+
+.contactTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-cream);
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(230, 215, 196, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contactLink:hover {
+  color: white;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(230, 215, 196, 0.5);
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+.contactLink:hover .icon {
+  color: white;
+}
+
+.contactText {
+  font-size: 0.875rem;
+}
+
+/* Bottom */
+.bottom {
+  border-top: 1px solid rgba(111, 128, 84, 0.3);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .bottom {
+    text-align: left;
+  }
+}
+
+.copyright {
+  color: rgba(230, 215, 196, 0.6);
+  font-size: 0.875rem;
+}
+
+/* From original module.css */
+.sectionDark {
+  background-color: var(--color-olive);
+  color: white;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(to right, var(--color-sand), var(--color-olive), var(--color-sand));
+}
+
+.fadeIn {
+  animation: fadeIn 1.5s ease-out;
+}

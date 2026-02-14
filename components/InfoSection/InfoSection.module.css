@@ -1,0 +1,100 @@
+/* Wrapper */
+.wrapper {
+  background-color: #f9fafb;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 1rem;
+}
+
+.sectionWhite {
+  background-color: white;
+}
+
+/* Container - 2 column grid */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Content */
+.slideInLeft {
+  animation: slideInLeft 1s ease-out;
+}
+
+.slideInRight {
+  animation: slideInRight 1s ease-out;
+}
+
+.heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-deep-teal);
+}
+
+.text {
+  color: #4b5563;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* Image placeholder */
+.imagePlaceholder {
+  background-color: #e5e7eb;
+  height: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 3.75rem;
+  border-radius: 1rem;
+}
+
+/* From original module.css */
+.sectionLight {
+  background-color: var(--color-cream);
+}
+
+.sectionMedium {
+  background-color: var(--color-sand);
+}
+
+.sectionDark {
+  background-color: var(--color-olive);
+  color: white;
+}
+
+.sectionContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.card {
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid var(--color-sand);
+  transition: all 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}

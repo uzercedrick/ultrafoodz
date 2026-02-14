@@ -1,0 +1,89 @@
+.sectionLight {
+  padding: 6rem 1rem;
+  background-color: var(--color-cream);
+  overflow: hidden;
+}
+
+.sectionContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.slideInLeft {
+  animation: slideInLeft 1s ease-out;
+}
+
+.slideInRight {
+  animation: slideInRight 1s ease-out;
+}
+
+.imageHover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.imagePlaceholder {
+  position: relative;
+  height: 600px;
+  background: linear-gradient(to bottom right, #ffedd5, #fee2e2);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ffedd5;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.badge span {
+  color: #ea580c;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.heading {
+  font-size: 3.75rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.textGradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-deep-teal), var(--color-olive), var(--color-sage));
+}
+
+.paragraph {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid var(--color-sand);
+  transition: all 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}

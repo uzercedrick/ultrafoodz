@@ -1,14 +1,14 @@
 "use client"
 import { useEffect, useState } from "react"
-import Header from "../components/Header"
-import Hero from "../components/Hero"
-import AboutSection from "../components/AboutSection"
-import InfoSections from "../components/InfoSections"
-import BrandsSection from "../components/BrandsSection"
-import HistorySection from "../components/HistorySection"
-import MapSection from "../components/MapSection"
-import Footer from "../components/Footer"
-import ScrollToTop from "../components/ScrollToTop"
+import Header from "../../components/Header/Header"
+import Hero from "../../components/Hero/Hero"
+import AboutSection from "../../components/AboutSection/AboutSection"
+import InfoSections from "../../components/InfoSection/InfoSections"
+import BrandsSection from "../../components/BrandsSection/BrandsSection"
+import HistorySection from "../../components/HistorySection/HistorySection"
+import MapSection from "../../components/MapSection/MapSection"
+import Footer from "../../components/Footer/Footer"
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")

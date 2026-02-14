@@ -1,0 +1,195 @@
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+
+/* Slides */
+.slidesContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  transition: all 1s ease-in-out;
+}
+
+.slideActive {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideLeft {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slideRight {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* Background blobs */
+.blobTopRight {
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  width: 18rem;
+  height: 18rem;
+  background-color: rgba(251, 146, 60, 0.3);
+  border-radius: 9999px;
+  filter: blur(48px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.blobBottomLeft {
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(252, 165, 165, 0.3);
+  border-radius: 9999px;
+  filter: blur(48px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.blobDelay {
+  animation-delay: 2s;
+}
+
+/* Background image */
+.imageBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, #fff7ed, #fef2f2, #fdf2f8);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #e5e7eb, #d1d5db);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageIcon {
+  font-size: 6rem;
+  color: #9ca3af;
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content overlay */
+.overlay {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.overlayContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.content {
+  max-width: 48rem;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 6rem;
+  }
+}
+
+.titleText {
+  color: white;
+  filter: drop-shadow(0 25px 25px rgba(0,0,0,0.15));
+}
+
+.subtitle {
+  font-size: 1.875rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  filter: drop-shadow(0 10px 8px rgba(0,0,0,0.04));
+  animation: slideInLeft 1s ease-out;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 2.25rem;
+  }
+}
+
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 20;
+}
+
+.dot {
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dotActive {
+  width: 3rem;
+  background-color: white;
+}
+
+.dotInactive {
+  width: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dotInactive:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 2rem;
+}
+
+/* From original module.css */
+.gradientBg {
+  background-image: linear-gradient(to bottom right, var(--color-olive), var(--color-sage), var(--color-sand));
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}

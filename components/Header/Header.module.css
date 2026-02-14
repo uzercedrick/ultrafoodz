@@ -1,0 +1,128 @@
+/* Header */
+.header {
+  background-color: var(--color-olive);
+  border-bottom: 1px solid #5a6944;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+  height: 5rem;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Logo */
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 3rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .logoText {
+    font-size: 1.5rem;
+  }
+}
+
+/* Navigation */
+.nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: block;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Animated underline */
+.navUnderline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease-out;
+}
+
+/* Nav links */
+.navLink {
+  transition: color 0.3s;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navLinkActive {
+  color: white;
+  font-weight: 600;
+}
+
+.navLinkInactive {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.navLinkInactive:hover {
+  color: white;
+}
+
+/* Mobile menu */
+.mobileMenuBtn {
+  display: block;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuBtn {
+    display: none;
+  }
+}
+
+.mobileMenuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobileMenuEnter {
+  animation: slideDown 0.3s ease-out;
+}

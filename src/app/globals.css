@@ -1,22 +1,18 @@
-/* 1. Google Fonts import - MUST BE FIRST */
+/* 1. Google Fonts - MUST BE FIRST */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap');
 
 /* 2. Tailwind CSS - MUST BE SECOND */
 @import "tailwindcss";
 
-/* 3. Theme definitions with your custom colors */
+/* 3. Theme - shared across ALL components */
 @theme {
   --font-poppins: "Poppins", "sans-serif";
   --font-playfair: "Playfair Display", "serif";
-  
-  /* Your custom color palette */
   --color-deep-teal: #364025;
   --color-olive: #6F8054;
   --color-sage: #AAB281;
   --color-sand: #CFBB9A;
   --color-cream: #E6D7C4;
-  
-  /* Semantic color assignments */
   --color-primary: var(--color-olive);
   --color-secondary: var(--color-sage);
   --color-accent: var(--color-sand);
@@ -24,7 +20,7 @@
   --color-text: var(--color-deep-teal);
 }
 
-/* 4. Base styles */
+/* 4. Base styles - affects whole app */
 @layer base {
   body {
     font-family: var(--font-poppins);
@@ -32,7 +28,7 @@
     background-color: var(--color-cream);
     color: var(--color-deep-teal);
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair);
     color: var(--color-deep-teal);
@@ -43,174 +39,7 @@
   }
 }
 
-/* Custom components */
-@layer components {
-  /* Animated gradient backgrounds with your colors */
-  .gradient-bg {
-    @apply bg-gradient-to-br;
-    background-image: linear-gradient(to bottom right, var(--color-olive), var(--color-sage), var(--color-sand));
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
-  }
-
-  .gradient-bg-green {
-    @apply bg-gradient-to-br;
-    background-image: linear-gradient(to bottom right, var(--color-deep-teal), var(--color-olive), var(--color-sage));
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
-  }
-
-  /* Animated buttons with your colors */
-  .btn-primary {
-    @apply px-8 py-4 text-white font-bold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
-    background-color: var(--color-olive);
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--color-deep-teal);
-  }
-
-  .btn-secondary {
-    @apply px-8 py-4 font-bold rounded-full shadow-lg border-2 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
-    background-color: var(--color-cream);
-    color: var(--color-deep-teal);
-    border-color: var(--color-sand);
-  }
-  
-  .btn-secondary:hover {
-    border-color: var(--color-olive);
-  }
-
-  /* Card styles */
-  .card {
-    @apply rounded-3xl shadow-xl p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl;
-    background-color: white;
-    border: 1px solid var(--color-sand);
-  }
-
-  .card-image {
-    @apply rounded-2xl overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-105;
-  }
-
-  /* Text animations with your colors */
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, var(--color-deep-teal), var(--color-olive), var(--color-sage));
-  }
-
-  .text-shimmer {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, var(--color-deep-teal), var(--color-olive), var(--color-deep-teal));
-    background-size: 200% 100%;
-    animation: shimmer 3s linear infinite;
-  }
-
-  /* Header with your colors */
-  .header-bg {
-    background-color: var(--color-olive);
-    border-bottom: 1px solid var(--color-deep-teal);
-  }
-
-  /* Section backgrounds */
-  .section-light {
-    background-color: var(--color-cream);
-  }
-
-  .section-medium {
-    background-color: var(--color-sand);
-  }
-
-  .section-dark {
-    background-color: var(--color-olive);
-    color: white;
-  }
-
-  /* Image hover effects */
-  .image-hover {
-    @apply relative overflow-hidden rounded-2xl;
-  }
-
-  .image-hover img {
-    @apply transform transition-all duration-700 hover:scale-110;
-  }
-
-  .image-hover::after {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
-    background: linear-gradient(to top, var(--color-deep-teal), transparent);
-  }
-
-  .image-hover:hover::after {
-    @apply opacity-50;
-  }
-
-  /* Section animations */
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out;
-  }
-
-  .fade-in {
-    animation: fadeIn 1.5s ease-out;
-  }
-
-  .slide-in-left {
-    animation: slideInLeft 1s ease-out;
-  }
-
-  .slide-in-right {
-    animation: slideInRight 1s ease-out;
-  }
-
-  .scale-in {
-    animation: scaleIn 0.8s ease-out;
-  }
-
-  /* Floating animation for images */
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* Pulse animation with your colors */
-  .pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  /* Header underline animation */
-  .nav-underline {
-    @apply absolute bottom-0 h-0.5 transition-all duration-300 ease-out;
-    background-color: var(--color-cream);
-  }
-
-  /* Section padding for fixed header */
-  .section-padding {
-    @apply pt-24;
-  }
-
-  /* Container for sections */
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 py-16 md:py-24;
-  }
-
-  /* Responsive grid layouts */
-  .grid-auto-fit {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-
-  /* Badge with your colors */
-  .badge {
-    @apply px-3 py-1 text-sm rounded-full;
-    background-color: var(--color-sand);
-    color: var(--color-deep-teal);
-  }
-
-  /* Divider with your colors */
-  .divider {
-    height: 2px;
-    background: linear-gradient(to right, var(--color-sand), var(--color-olive), var(--color-sand));
-  }
-}
-
-/* Keyframe animations */
+/* 5. Keyframes - needed by all components */
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -306,7 +135,7 @@
   }
 }
 
-/* Scroll reveal animation */
+/* 6. Global utilities */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -318,7 +147,7 @@
   transform: translateY(0);
 }
 
-/* Custom scrollbar with your colors */
+/* 7. Scrollbar - global */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -336,38 +165,12 @@
   background: linear-gradient(to bottom, var(--color-deep-teal), var(--color-olive));
 }
 
-/* Loading spinner with your colors */
-.loading-spinner {
-  @apply w-12 h-12 border-4 rounded-full;
-  border-color: var(--color-sand);
-  border-top-color: var(--color-olive);
-  animation: spin 1s linear infinite;
-}
-
-/* Mobile menu animations */
-.mobile-menu-enter {
-  animation: slideDown 0.3s ease-out;
-}
-
-/* Responsive typography */
-@screen md {
-  .responsive-heading {
-    @apply text-5xl;
-  }
-}
-
-@screen lg {
-  .responsive-heading {
-    @apply text-6xl;
-  }
-}
-
-/* Print styles */
+/* 8. Print styles - global */
 @media print {
   .no-print {
     display: none !important;
   }
-  
+
   body {
     color: black;
     background-color: white;

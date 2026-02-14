@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react'
+import styles from "./Header.module.css"
 
 export default function Header({ scrollToSection, activeSection }) {
   const navItems = [
@@ -13,7 +14,6 @@ export default function Header({ scrollToSection, activeSection }) {
 
   const [underlineStyle, setUnderlineStyle] = useState({})
 
-  // Update underline position when active section changes
   useEffect(() => {
     const activeElement = document.querySelector(`[data-section="${activeSection}"]`)
     if (activeElement) {
@@ -26,9 +26,9 @@ export default function Header({ scrollToSection, activeSection }) {
   }, [activeSection])
 
   return (
-    <header className="bg-[#6F8054] border-b border-[#5a6944] fixed w-full top-0 z-50 h-20">
-      <div className="max-w-7xl mx-auto px-4 h-full">
-        <div className="flex items-center justify-between h-full">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.inner}>
           
           {/* Logo */}
           <a 
@@ -37,25 +37,25 @@ export default function Header({ scrollToSection, activeSection }) {
               e.preventDefault()
               scrollToSection('hero')
             }} 
-            className="flex items-center space-x-3"
+            className={styles.logoLink}
           >
             <img
               src="/logo.png"
               alt="Ultrafood Logo"
-              className="h-12 w-auto object-contain"
+              className={styles.logoImage}
             />
-            <h1 className="text-xl md:text-2xl font-bold tracking-wide text-black">
+            <h1 className={styles.logoText}>
               ULTRAFOOD
             </h1>
           </a>
 
           {/* Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8 text-sm font-medium relative">
+          <nav className={styles.nav}>
+            <ul className={styles.navList}>
               
               {/* Animated underline */}
               <li
-                className="absolute bottom-0 h-0.5 bg-white transition-all duration-300 ease-out"
+                className={styles.navUnderline}
                 style={{
                   ...underlineStyle,
                   bottom: '-4px',
@@ -72,10 +72,10 @@ export default function Header({ scrollToSection, activeSection }) {
                       scrollToSection(item.id)
                     }}
                     className={`
-                      transition-colors duration-300 px-1 py-2 cursor-pointer
+                      ${styles.navLink}
                       ${activeSection === item.id 
-                        ? 'text-white font-semibold' 
-                        : 'text-black/80 hover:text-white'
+                        ? styles.navLinkActive
+                        : styles.navLinkInactive
                       }
                     `}
                   >
@@ -87,11 +87,12 @@ export default function Header({ scrollToSection, activeSection }) {
           </nav>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-black">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className={styles.mobileMenuBtn}>
+            <svg className={styles.mobileMenuIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
+
         </div>
       </div>
     </header>
